@@ -50,6 +50,6 @@ PUSH
 Creating web ... done
 Step #0:
 ```
-The logs indicate that steps 0, 1, and 2 are all finished, and then the entire build is completed (as indicated by the "PUSH" statement). And *then* we see the final output of the initial step: `Creating web ... done`. The fact that the curl request was successful suggests that this event happened way back in Step 0. But it doesn't show up in the log until after the end of the build.
+The logs indicate that steps 0, 1, and 2 are all finished, and then the entire build is completed (as indicated by the "PUSH" statement). **Then we have the weird part:** *After* the end-of-build logs, we see the final output of the initial step: `Creating web ... done`. The fact that the curl request was successful suggests that this event happened way back in Step 0. But it doesn't show up in the log until after the end of the build. Weird.
 
 This isn't a big deal. Except it's super annoying when trying to troubleshoot... I've been trying to figure out why my docker-compose environment won't start, but actually it does start. That has made me bark up several wrong trees. :( What's going on here?
