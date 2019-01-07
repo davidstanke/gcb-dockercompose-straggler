@@ -1,0 +1,25 @@
+steps:
+
+# launch the docker-compose environment...
+# it will be created, but the logs won't show it as done (?)
+- name: 'docker/compose:1.15.0'
+  args: ['up','-d']
+
+# let's test that it was launched by making a web request.
+# this should return status 200
+- name: 'gcr.io/cloud-builders/curl'
+  args: ['-I','-s','http://web:8080']
+
+# but docker-compose still hasn't reported "done"
+# okay, maybe we're just exiting the build too quickly.
+# let's sleep for a bit...
+- name: 'gcr.io/cloud-builders/curl'
+  entrypoint: '/bin/bash'
+  args: 
+  - '-c'
+  - |
+    echo "sleeping for 30 sec ..."
+    sleep 30
+    echo "done sleeping"
+
+# has docker-compose reported 'done?' I bet it will now.
