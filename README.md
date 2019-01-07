@@ -9,7 +9,7 @@ The basic idea is that we use `docker-compose up` to spin up a multi-service env
 To see the normal behavior, clone this repo and run:
 ```
 # the compose config is designed to run in Cloud Build, where there is a network 'cloudbuild'
-docker create network cloudbuild
+docker network create cloudbuild
 
 docker-compose up
 ```
