@@ -20,12 +20,12 @@ Creating web ... done
 At this point, the docker-compose environment is running as a background service, ready to accept connections (but only from within the 'cloudbuild' network).
 
 ### Strange behavior in Cloud Build
-Now, use Cloud Build to spin up the compose environment:
+Now, use Cloud Build to spin up the compose environment (the cloudbuild.yaml file in this repo provides config):
 ```
 gcloud builds submit .
 ```
 
-The cloudbuild.yaml config will spin up the docker-compose environment, which will respond to connections. Everything works, except for the logs are strange:
+This will spin up the docker-compose environment, which will respond to connections. Everything works, except for the logs are strange:
 ```
 ...
 Step #0: Status: Downloaded newer image for python:latest
