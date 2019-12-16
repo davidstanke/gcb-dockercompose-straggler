@@ -2,7 +2,7 @@ steps:
 
 # launch the docker-compose environment...
 # it will be created, but the logs won't show it as done (?)
-- name: 'docker/compose:1.15.0'
+- name: 'docker/compose:1.25.0'
   args: ['up','-d']
 
 # let's test that it was launched by making a web request.
